@@ -13,12 +13,11 @@ const TodoList = () => {
  dispatch(deletetask(id))
   };
 
-  const toggleCheck = (todoId, isChecked) => {
+  const toggleCheck = () => {
     // Fix an ability to toggle task
 
   };
   const {todos:getTasks} = useSelector(state => state.tasks)
-  const users = []
   useEffect (()=>{
     dispatch(fetchAllTasks())
   },[])
@@ -44,7 +43,11 @@ const TodoList = () => {
   <p className="raw-id" >  {element.label} </p>
 
   <p  > Task Completed
-    <input type="checkbox"  />
+    <input type="checkbox"  onClick={{}} />
+     </p>
+     <p>total tasks completed:
+      
+
      </p>
      <div>
      </div>
@@ -53,6 +56,7 @@ const TodoList = () => {
      </p>
 
   </div>
+  
 
 )}
 

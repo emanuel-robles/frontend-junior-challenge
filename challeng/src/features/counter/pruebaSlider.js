@@ -19,43 +19,20 @@ export const tasksSlice = createSlice({
       },
       addtask: (state,actions)=>{
         const newTask = {
-    
-          text: actions.payload,
-          done: false, 
-       
+          id:uuidv4(),
+          label: actions.payload,
+          checked: false, 
         };
         state.todos.push(newTask); 
       },
-      //no funciona    
-      toggleTask: (state, action) => {
-        // Buscamos el index de la tarea a marcar como completada / no completada.
-        const taskIndex = state.todos.findIndex(
-          (task) => task.id === action.payload.id
-        );
-        // Si la tarea existe, cambiamos el estado de su propiedad done.
-        if (taskIndex >= 0) {
-          state[taskIndex].done = !state[taskIndex].done;
-        }},
+  
         deletetask:(state, actions)=>{
-          // const taskIndex = state.todos.filter(
-          //       (task) => task.id === action.payload.id
-          //     );
-          // return state.todos.splice(taskIndex,1)
+      
       
           state.todos = state.todos.filter(   (todo) => todo.id != actions.payload)
    
         },
  
-    searchId:(state,actions)=>{
-      state.todos = actions.payload
-    },
-    incremented: state => {
-      state.value += 1
-    },
-    decremented: state => {
-      state.value -= 1
-    },
-
   },
 });
 
@@ -76,11 +53,4 @@ dispatch(setTasksList(response.data))
 })
 .catch(()=>{})
 }
-
-export const deletedTa = (id) => {
-  return async (dispatch) => {
-    dispatch(deletetask(id));
-
-};}
-
 

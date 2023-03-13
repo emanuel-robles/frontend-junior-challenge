@@ -14,7 +14,7 @@ const AddTask = () => {
 	// Se ejecuta cuando el usuario presiona una tecla:
   const handleKeyDown = (e) => {
     e.preventDefault();
-      dispatch(addtask({ text }));
+      dispatch(addtask(text));
 		
       setText('');
   };
@@ -24,7 +24,7 @@ const AddTask = () => {
   return( 
     <section className='TodoInput' >
       <form className="add-task-form" action="" method="post" onSubmit={handleKeyDown} >
-    <textarea name="description" placeholder="description" onChange={handleInputChange} ></textarea>
+    <textarea className='description-new-task' name="description" placeholder="Enter new to do" onChange={handleInputChange} ></textarea>
     <button className='button'  >ADD TO DO</button>
    </form>
     </section>

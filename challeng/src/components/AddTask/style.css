@@ -4,9 +4,27 @@
     border: 0px;
     color: white;
     font-weight: bold;
-    padding: 14px 15px;
+    padding: 15px 15px;
     text-align: center;
     text-decoration: none;
     display: inline-block;
     font-size: 16px;
+    position: absolute;
+    top: 20px 80px;
+  }
+  .description-new-task{
+    background-color: #ffffff; /* Green */
+    border-radius: 6px;
+    border: 0px;
+    color: white;
+    font-weight: bold;
+    padding: 3px 35px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    border: rgb(95, 93, 93) 1px solid;
+        position: relative;
+    top: 20px 80px;
+
   }
