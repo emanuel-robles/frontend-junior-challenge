@@ -41,8 +41,8 @@ const TodoList = () => {
 {getTasks.map((element)=>
 
 <div key={element.id} >
-  <p className="raw-id" >Todo Number {element.id}: </p>
-  {element.label} 
+  <p className="raw-id" >  {element.label} </p>
+
   <p  > Task Completed
     <input type="checkbox"  />
      </p>
@@ -58,20 +58,7 @@ const TodoList = () => {
 
 
 
-{/* {
-  35:30 no funciona preventdefault
-getTasks.map((element,index)=>{
-  <div key={index} className="todo-task"> 
-  <div className="card-body">
-    <p>{element.label}</p>
 
-  </div>
-   </div>
-}
-
-) 
-
-} */}
 </div>
 
     </div>

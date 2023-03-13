@@ -19,9 +19,10 @@ export const tasksSlice = createSlice({
       },
       addtask: (state,actions)=>{
         const newTask = {
-          id: uuidv4(), 
-          text: actions.payload.label,
+    
+          text: actions.payload,
           done: false, 
+       
         };
         state.todos.push(newTask); 
       },
@@ -40,10 +41,9 @@ export const tasksSlice = createSlice({
           //       (task) => task.id === action.payload.id
           //     );
           // return state.todos.splice(taskIndex,1)
-          console.log(state.todos, "antes");
-          state.todos = state.todos.filter(   (id) => id != actions.payload)
-       console.log(actions.payload);
-       console.log(state.todos,"despues");
+      
+          state.todos = state.todos.filter(   (todo) => todo.id != actions.payload)
+   
         },
  
     searchId:(state,actions)=>{
