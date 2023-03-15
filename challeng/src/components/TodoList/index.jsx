@@ -1,8 +1,9 @@
 import React,{useEffect} from "react";
 import "./styles.css";
 //redux
-import {fetchAllTasks,deletetask} from '../../features/counter/pruebaSlider';
+import {fetchAllTasks,deletetask,toggleChecks} from '../../features/counter/pruebaSlider';
 import { useDispatch,useSelector } from "react-redux";
+import TodoListItem from "components/TodoListItem";
 
 
 const TodoList = () => {
@@ -13,8 +14,10 @@ const TodoList = () => {
  dispatch(deletetask(id))
   };
 
-  const toggleCheck = () => {
-    // Fix an ability to toggle task
+  const toggleCheck = (checked) => {
+    // Fix an ability to toggle task 
+    //cada vez que check este en tru activa on chek
+    dispatch(toggleChecks(checked))
 
   };
   const {todos:getTasks} = useSelector(state => state.tasks)
@@ -31,39 +34,25 @@ const TodoList = () => {
       </style>
       <span className="todo-list-title">Things to do:</span>
       <div className="todo-list-content">
-        {/* Fix an ability to render todos */}
+      <div>
+    
+     
+    { getTasks &&  getTasks.map((ele) => {
+                   return (
+                     <TodoListItem
+                       key={ele.id}
+                       id={ele.id}
+                       label={ele.label}
+                       checked={ele.checked}
+                       onDelete= {() => handleDelete(ele.id) }
+                       
+                       onCheck={() => toggleCheck(ele.checked) }
+                     />
+                   );
+                 })}
+
+    </div>
       </div>
-      <div className="no-todos">
-        Looks like you&apos;re absolutely free today!
-      </div>
-<div className="raw" >
-{getTasks.map((element)=>
-
-<div key={element.id} >
-  <p className="raw-id" >  {element.label} </p>
-
-  <p  > Task Completed
-    <input type="checkbox"  onClick={{}} />
-     </p>
-     <p>total tasks completed:
-      
-
-     </p>
-     <div>
-     </div>
-     <p>
-      <button className="gatito" type="button" onClick={() => handleDelete(element.id)}>DELETE</button>
-     </p>
-
-  </div>
-  
-
-)}
-
-
-
-
-</div>
 
     </div>
   );

@@ -21,23 +21,24 @@ export const tasksSlice = createSlice({
         const newTask = {
           id:uuidv4(),
           label: actions.payload,
-          checked: false, 
+          checked: true, 
         };
         state.todos.push(newTask); 
       },
   
         deletetask:(state, actions)=>{
-      
-      
           state.todos = state.todos.filter(   (todo) => todo.id != actions.payload)
    
+        },
+        toggleChecks:(state, actions)=>{
+          state.todos = state.todos.findIndex(todo => todo.checked == actions.payload )
         },
  
   },
 });
 
 export const {
-  setTasksList,incremented,decremented,addtask,deletetask,toggleTask
+  setTasksList,addtask,deletetask,toggleChecks
 
 } = tasksSlice.actions;
 
@@ -54,3 +55,4 @@ dispatch(setTasksList(response.data))
 .catch(()=>{})
 }
 
+//https://www.neoguias.com/como-reemplazar-elemento-array-javascript/
