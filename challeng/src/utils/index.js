@@ -1,8 +1,8 @@
-export const toDoResults = (toDos) => {
-  return toDos.reduce((count, task) => {
-       if(task.checked){
-           count++;
+export const totalAmount = (tasks) => {
+  return tasks.reduce((sum, todo) => {
+       if(todo.checked){
+           sum++;
        }
-       return count;
+       return sum;
    }, 0)
 }

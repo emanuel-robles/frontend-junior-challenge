@@ -5,7 +5,6 @@ import { toast } from "react-toastify";
 
 const initialState = {
   todos: [],
-  value: 0
 
 };
 
@@ -34,18 +33,12 @@ export const tasksSlice = createSlice({
         const index = state.todos.findIndex( e => e.id == actions.payload)
         state.todos[index].checked = !state.todos[index].checked 
         },
-        increment: (state) => {
-          state.value += 1
-        },
-        decrement: (state) => {
-          state.value -= 1
-        },
- 
+    
   },
 });
 
 export const {
-  setTasksList,addtask,deletetask,toggleChecks,increment,decrement
+  setTasksList,addtask,deletetask,toggleChecks
 
 } = tasksSlice.actions;
 
@@ -61,7 +54,7 @@ dispatch(setTasksList(response.data))
 })
 .catch((error)=>{ toast.warn(error.message);})
 }
-export const checkATask = (id) => {
+export const checkTodo = (id) => {
   return async function (dispatch) {
       try {
           dispatch(toggleChecks(id))
@@ -71,22 +64,3 @@ export const checkATask = (id) => {
       }
   }
 }
-export const sumTask = (id,checked) => {
-  return async function (dispatch) {
-      try {
-        dispatch(toggleChecks(id))
-if (checked === true ) {   dispatch(increment())}
-else if (checked === false){ dispatch(decrement())}
-      
-       
-//cuando cliqueo y da en vedadero incrementa y cuando da en falso decrementa
-     
-
-          
-      } catch (error) {
-          return(error.message);
-      }
-  }
-}
-
-//https://www.neoguias.com/como-reemplazar-elemento-array-javascript/

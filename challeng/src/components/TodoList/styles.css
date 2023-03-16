@@ -30,27 +30,3 @@
   font-size: 14px;
   color: rgb(255, 255, 255);
 }
-
-.gatito {
-  background-color: #f70606; /* Green */
-  border-radius: 6px;
-  border: 0px;
-  color: white;
-  font-weight: bold;
-  padding: 14px 15px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 16px;
-}
-.raw{  text-align: center;
-  padding: 5px 0;
-  font-size: 14px;
-  color: rgb(255, 255, 255);}
-  .raw-id{
-    color: rgb(16, 37, 22);
-    font-weight: bold; 
-    font-size: 18px;
-  
-  }
-  
