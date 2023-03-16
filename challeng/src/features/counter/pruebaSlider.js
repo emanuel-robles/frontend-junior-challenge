@@ -1,6 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { v4 as uuidv4 } from'uuid';
 import axios from "axios";
+import { toast } from "react-toastify";
 
 const initialState = {
   todos: [],
@@ -31,7 +32,8 @@ export const tasksSlice = createSlice({
    
         },
         toggleChecks:(state, actions)=>{
-          state.todos = state.todos.findIndex(todo => todo.checked == actions.payload )
+        const index = state.todos.findIndex( e => e.id == actions.payload)
+        state.todos[index].checked = !state.todos[index].checked 
         },
  
   },
@@ -53,6 +55,16 @@ dispatch(setTasksList(response.data))
 
 })
 .catch(()=>{})
+}
+export const checkATask = (id) => {
+  return async function (dispatch) {
+      try {
+          dispatch(toggleChecks(id))
+          
+      } catch (error) {
+          toast.warn(error.message);
+      }
+  }
 }
 
 //https://www.neoguias.com/como-reemplazar-elemento-array-javascript/

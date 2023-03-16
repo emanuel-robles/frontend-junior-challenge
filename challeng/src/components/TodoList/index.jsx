@@ -1,7 +1,8 @@
 import React,{useEffect} from "react";
 import "./styles.css";
 //redux
-import {fetchAllTasks,deletetask,toggleChecks} from '../../features/counter/pruebaSlider';
+import {fetchAllTasks,deletetask,checkATask} from '../../features/counter/pruebaSlider';
+
 import { useDispatch,useSelector } from "react-redux";
 import TodoListItem from "components/TodoListItem";
 
@@ -14,10 +15,10 @@ const TodoList = () => {
  dispatch(deletetask(id))
   };
 
-  const toggleCheck = (checked) => {
+  const toggleCheck = (todoID) => {
     // Fix an ability to toggle task 
     //cada vez que check este en tru activa on chek
-    dispatch(toggleChecks(checked))
+   dispatch(checkATask(todoID))
 
   };
   const {todos:getTasks} = useSelector(state => state.tasks)
@@ -37,16 +38,16 @@ const TodoList = () => {
       <div>
     
      
-    { getTasks &&  getTasks.map((ele) => {
+    { getTasks &&  getTasks.map((ele,index) => {
                    return (
                      <TodoListItem
-                       key={ele.id}
+                       key={index}
                        id={ele.id}
                        label={ele.label}
                        checked={ele.checked}
                        onDelete= {() => handleDelete(ele.id) }
                        
-                       onCheck={() => toggleCheck(ele.checked) }
+                       onCheck={toggleCheck}
                      />
                    );
                  })}

@@ -28,8 +28,13 @@
     {
       "id": 5,
       "label": "Fix an ability to count completed tasks",
-      "checked": false
+      "checked": true
     }
   ]
-   let search = todo.find(e => e.checked == false)
-   console.log(search);
+
+  const frutas = ['naranja', 'pera', 'manzana', 'platano', 'fresa', 'granada'];
+  const indice = todo.indexOf( false);
+  
+  todo[indice] =  true;
+  
+  console.log(todo);
