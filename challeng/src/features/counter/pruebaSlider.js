@@ -5,7 +5,6 @@ import { toast } from "react-toastify";
 
 const initialState = {
   todos: [],
-  newtodo:{},
   value: 0
 
 };
@@ -35,12 +34,18 @@ export const tasksSlice = createSlice({
         const index = state.todos.findIndex( e => e.id == actions.payload)
         state.todos[index].checked = !state.todos[index].checked 
         },
+        increment: (state) => {
+          state.value += 1
+        },
+        decrement: (state) => {
+          state.value -= 1
+        },
  
   },
 });
 
 export const {
-  setTasksList,addtask,deletetask,toggleChecks
+  setTasksList,addtask,deletetask,toggleChecks,increment,decrement
 
 } = tasksSlice.actions;
 
@@ -63,6 +68,23 @@ export const checkATask = (id) => {
           
       } catch (error) {
           toast.warn(error.message);
+      }
+  }
+}
+export const sumTask = (id,checked) => {
+  return async function (dispatch) {
+      try {
+        dispatch(toggleChecks(id))
+if (checked === true ) {   dispatch(increment())}
+else if (checked === false){ dispatch(decrement())}
+      
+       
+//cuando cliqueo y da en vedadero incrementa y cuando da en falso decrementa
+     
+
+          
+      } catch (error) {
+          return(error.message);
       }
   }
 }

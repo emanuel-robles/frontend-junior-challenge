@@ -38,7 +38,7 @@ const TodoList = () => {
       <div>
     
      
-    { getTasks &&  getTasks.map((ele,index) => {
+    {    getTasks &&  getTasks.map((ele,index) => {
                    return (
                      <TodoListItem
                        key={index}

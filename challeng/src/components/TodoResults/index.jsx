@@ -1,15 +1,22 @@
 import React from "react";
-import "./styles.css";
-//sumar todos los check
+import { useSelector } from "react-redux";
+import {  toDoResults } from "../../utils/index";
+import {fetchAllTasks} from '../../features/counter/pruebaSlider';
+
 const TodoResults = () => {
-  // Fix an ability to calculate completed tasks
+  
 
-  return <div className="todo-results">Done
+  const {todos:getTasks} = useSelector(state => state.tasks)
+  const donecounter = toDoResults(getTasks)
 
+  return(
+    <div>
+     DONE: <div>
+        {donecounter}
+      </div>
+    </div>
+  ) 
 
-  </div>
- 
- 
 };
 
 export default TodoResults;
