@@ -4,7 +4,7 @@ import TodoResults from "./components/TodoResults";
 import { useDispatch } from "react-redux";
 import React,{useEffect} from "react";
 import "./App.css";
-import AddTask from "components/AddTask";
+import TodoForm from "components/TodoForm";
 import { ToastContainer } from "react-toastify";
 import {fetchAllTasks} from '../src/features/counter/pruebaSlider';
 
@@ -19,7 +19,7 @@ useEffect(() => {
     <div className="root">
       <TodoList />
       <TodoResults />
-      <AddTask/>
+      <TodoForm/>
       <ToastContainer autoClose={2000} />
     </div>
   );

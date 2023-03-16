@@ -38,7 +38,7 @@ const TodoList = () => {
       <div>
     
      
-    {    getTasks &&  getTasks.map((ele,index) => {
+    { getTasks.length <= 0 ? `Looks like you&apos;re absolutely free today!` : getTasks &&  getTasks.map((ele,index) => {
                    return (
                      <TodoListItem
                        key={index}
@@ -49,8 +49,11 @@ const TodoList = () => {
                        
                        onCheck={toggleCheck}
                      />
-                   );
-                 })}
+                   ); 
+                 }) 
+                 
+                 
+                 }  
 
     </div>
       </div>

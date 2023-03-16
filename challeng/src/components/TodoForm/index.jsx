@@ -6,7 +6,7 @@ import "./style.css";
 
 const AddTask = () => {
   const dispatch = useDispatch(); // Inicializamos el disparador.
-  const [text, setText] = useState('');
+  const [text, setText] = useState("");
 
   const handleInputChange = (e) => {
     setText(e.target.value);
@@ -14,6 +14,12 @@ const AddTask = () => {
 	// Se ejecuta cuando el usuario presiona una tecla:
   const handleKeyDown = (e) => {
     e.preventDefault();
+   
+    if (!text) {
+      if (!text) {
+       return 'Error!'
+      }
+    }
       dispatch(addtask(text));
 		
       setText('');

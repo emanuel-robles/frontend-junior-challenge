@@ -59,7 +59,7 @@ dispatch(setTasksList(response.data))
 
 
 })
-.catch(()=>{})
+.catch((error)=>{ toast.warn(error.message);})
 }
 export const checkATask = (id) => {
   return async function (dispatch) {
