@@ -21,7 +21,7 @@ export const tasksSlice = createSlice({
         const newTask = {
           id:uuidv4(),
           label: actions.payload,
-          checked: true, 
+          checked: false, 
         };
         state.todos.push(newTask); 
       },

@@ -4,6 +4,12 @@
   text-transform: uppercase;
   text-align: center;
   display: block;
-  padding: 5px 0;
+  padding: 0px 0;
   margin-bottom: 10px;
+}
+.count{
+  position: relative;
+  position: relative;
+  left: 40px;
+  bottom: 24px;
 }

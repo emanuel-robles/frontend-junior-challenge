@@ -1,8 +1,7 @@
 import React from "react";
 import { useSelector } from "react-redux";
 import {  toDoResults } from "../../utils/index";
-import {fetchAllTasks} from '../../features/counter/pruebaSlider';
-
+import "./styles.css";
 const TodoResults = () => {
   
 
@@ -10,8 +9,8 @@ const TodoResults = () => {
   const donecounter = toDoResults(getTasks)
 
   return(
-    <div>
-     DONE: <div>
+    <div  className="todo-results" >
+     DONE: <div className="count" >
         {donecounter}
       </div>
     </div>
